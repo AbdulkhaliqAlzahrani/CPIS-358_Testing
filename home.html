@@ -9,11 +9,27 @@
         <link rel="stylesheet" href="style.css">
         <title>Home-Crystal Car Care</title>
         <style>
-            h1{
+            h1 {
                 color: #003366;
                 text-align: center;
                 text-transform: uppercase;
                 letter-spacing: 2px;
+            }
+            .pricing-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+            .pricing-table th, .pricing-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: center;
+            }
+            .bonus-list {
+                background-color: #f9f9f9;
+                padding: 15px;
+                border-left: 5px solid #003366;
+                margin: 20px 0;
             }
         </style>
     </head>
@@ -26,19 +42,17 @@
                 <a href="/aboutUs.html">About Us</a>
             </nav>
         </header>
-        <a href="aboutUs.html"><img src="Images/Crystal Car Care logo.png" width="400" alt="Crystal Car Care Washing Process">
+
+        <a href="aboutUs.html">
+            <img src="Images/Crystal Car Care logo.png" width="400" alt="Crystal Car Care Logo">
         </a>
 
         <section id="introduction">
-        <h1>Welcome To Crystal Car Care</h1>
-        <p>
-            At Crystal Car Care, we believe your vehicle deserves a premium shine that lasts. 
-            Our idea is simple: to provide high-quality exterior detailing and deep interior cleaning 
-            that protects your car. The benefit to you is ultimate convenience and a flawless finish. 
-            Whether you need a quick wash before a busy workday or a comprehensive weekend detail, 
-            our expert team uses top-tier products to make your car look brand new. Drive away with 
-            crystal-clear perfection.
-        </p>
+            <h1>Welcome To Crystal Car Care</h1>
+            <p>
+                At Crystal Car Care, we believe your vehicle deserves a premium shine that lasts. 
+                Our expert team uses top-tier products to make your car look brand new.
+            </p>
         </section>
 
         <h3>Why choose Crystal Car Care?</h3>
@@ -51,13 +65,12 @@
         <table class="pricing-table">
             <tr>
                 <th colspan="4">Pricing</th>
-                <tr>
-                    <th>Service</th>
-                    <th>Small Car</th>
-                    <th>Medium Car</th>
-                    <th>Big Car</th>
-                </tr>
-
+            </tr>
+            <tr>
+                <th>Service</th>
+                <th>Small Car</th>
+                <th>Medium Car</th>
+                <th>Big Car</th>
             </tr>
             <tr>
                 <th>Exterior Washing</th>
@@ -78,7 +91,38 @@
                 <td>40SR</td>
             </tr>
         </table>
-        
+
+        <script> 
+            var x = window.prompt("Enter the service value (e.g. 40):");
+            
+            function applyDiscount(Value) {
+                var price = parseFloat(Value);
+                
+                if (price > 30) {
+                    var discount = price * 0.1;
+                    var finalPrice = price - discount;
+                    
+                    document.write("<div class='bonus-list'>");
+                    document.write("<h4>Special Offer Applied!</h4>");
+                    document.write("<p>Discount: " + discount + " SR. Final Price: <b>" + finalPrice + " SR</b></p>");
+                    
+                 
+                    var bonuses = ["Air Freshener", "Tire Shine", "Dashboard Protection"];
+                    document.write("<p>Since your order is over 30SR, you get these for FREE:</p><ul>");
+                    
+                    for (var i = 0; i < bonuses.length; i++) {
+                        document.write("<li>" + bonuses[i] + " </li>");
+                    }
+                    
+                    document.write("</ul></div>");
+                } else {
+                    document.write("<p style='text-align:center;'>Total Price: " + price + " SR</p>");
+                }
+            }
+
+            applyDiscount(x);
+        </script>
+
         <footer style="background-color: #003366; color: #fff; text-align: center; padding: 20px; margin-top: 40px;">
             <p>&copy; 2026 Crystal Car Care - All rights reserved.</p>
             <p><a href="#top" style="color: rgb(153, 220, 242); text-decoration: none;">Back To Top &uarr;</a></p>
